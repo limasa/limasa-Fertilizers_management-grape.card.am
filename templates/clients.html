@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<div class="table-responsive">
+  <div class="form-inline my- my-lg-1">
+    <a class="btn btn-warning btn-sm" href="{% url 'client_create' %}">Ստեղծել գործընկեր</a>
+  </div>
+  <br>
+  <table class="table table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Անուն Ազգանուն/Անվանում</th>
+        <th scope="col">Մարզ</th>
+        <th scope="col">Մանրամասն</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for client in clients %}
+      <tr class="bg-light">
+        <th scope="row">{{client.id}}</th>
+        <td>{{client.client_name}}</td>
+        <td>{{client.region}}</td>
+        <td><a class="btn btn-warning btn-sm" href="{% url 'client_details' client.pk %}">մանրամասն</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock content %}

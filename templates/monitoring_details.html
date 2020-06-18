@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+{% for monitoring in monitoring %}
+<div class="card border-success mb-3">
+  <h5 class="card-header bg-dark"> {{monitoring.client_name}} գործընկերոջ մանրամասներ</h5>
+  <div class="card-body">
+    <p class="card-text">Համայնք։ {{monitoring.client_name.region}}</p>
+    <p class="card-text">Գնահատական։ {{monitoring.condition}}</p>
+    <p class="card-text">Ամսաթիվ։ {{monitoring.create_date}}</p>
+    <p class="card-text">Մեկնաբանություն։ {{monitoring.details}}</p>
+
+  </div>
+</div>
+{% endfor %}
+{% endblock content %}

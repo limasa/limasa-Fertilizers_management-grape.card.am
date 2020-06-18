@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<form action='' method="post">
+  {% csrf_token %}
+  <div class="form-group">
+    <h5>Վաճառք</h5>
+    <br>
+    {{ form|crispy }}
+  </div>
+  <div class="form-inline my- my-lg-1">
+    <button type="submit" class="btn btn-warning btn-form">Վաճառել</button>
+  </div>
+</form>
+
+{% endblock content %}

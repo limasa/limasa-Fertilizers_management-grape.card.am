@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<div class="table-responsive">
+  <div class="form-inline my- my-lg-1">
+    <a class="btn btn-warning btn-sm" href="{% url 'monitoring' %}">Կատարել մոնիթորինգ</a>
+  </div>
+  <br>
+  <table class="table table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Անուն Ազգանուն/Անվանում</th>
+        <th scope="col">Մարզ</th>
+        <th scope="col">Գնահատական</th>
+        <th scope="col">Ամսաթիվ</th>
+        <th scope="col">Մեկնաբանություն</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for monitoring in monitorings %}
+      <tr class="bg-light">
+        <th scope="row">{{monitoring.id}}</th>
+        <td>{{monitoring.client_name}}</td>
+        <td>{{monitoring.client_name.region}}</td>
+        <td>{{monitoring.condition}}</td>
+        <td>{{monitoring.create_date}}</td>
+        <td><a class="btn btn-warning btn-sm" href="{% url 'monitoring_details' monitoring.pk %}">մանրամասն</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock content %}

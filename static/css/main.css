@@ -1,0 +1,25 @@
+body {
+  background-color: hsl(118, 76%, 73%);
+  background: url('../images/bg_picture.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+
+}
+
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: hsl(0, 0%, 100%);
+}
+
+
+.bg-dark {
+  background-color: #007A33 !important;
+}

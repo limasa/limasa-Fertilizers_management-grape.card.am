@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<form action='' method="post" enctype='multipart/form-data'>
+  {% csrf_token %}
+  <div class="form-group">
+    <h5>Պարարտանյութերի խմբաքանակի hաշվիչ</h5>
+    <br>
+    {{ form|crispy }}
+  </div>
+  <div class="form-inline my- my-lg-1">
+    <button type="submit" class="btn btn-warning btn-form">Հաշվել</button>
+  </div>
+</form>
+<br>
+<div class="table-responsive">
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Անվանում</th>
+        <th scope="col">Գին</th>
+        <th scope="col">Նորմա</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for fert in fertilizers %}
+      <tr class="bg-light">
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{fert.fertilizer_name}}</td>
+        <td>{{fert.price}}</td>
+        <td>{{fert.expense_norm}}</td>
+
+      </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock content %}

@@ -1,0 +1,12 @@
+# Sqlite databases
+*.sqlite3
+
+## editors
+.vscode/
+
+# Python
+__pycache__
+*.pyc
+
+# Django
+**/migrations/

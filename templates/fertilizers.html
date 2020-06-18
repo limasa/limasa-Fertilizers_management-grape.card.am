@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Անվանում</th>
+        <th scope="col">Գին</th>
+        <th scope="col">Նորմա</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for fert in fertilizers %}
+      <tr class="bg-light">
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{fert.fertilizer_name}}</td>
+        <td>{{fert.price}}</td>
+        <td>{{fert.expense_norm}}</td>
+
+      </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock content  %}

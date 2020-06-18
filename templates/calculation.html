@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load mathfilters %}
+
+{% block content  %}
+<div class="card border-success mb-3">
+  <h5 class="card-header bg-dark">{{client_name}} {{area}} հա հաշվարկ</h5>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Անվանում</th>
+            <th scope="col">Գին</th>
+            <th scope="col">Քանակ</th>
+            <th scope="col">Արժեք</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fert in ferts %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{fert.fertilizer_name}}</td>
+            <td>{{fert.price|floatformat}}</td>
+            <td>{{fert.expense_norm|mul:area|stringformat:".3f"}}</td>
+            <td>{{fert.get_price_norm|mul:area|stringformat:".0f"}}</td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+        <tr>
+          <th scope="row">Ընդամենը</th>
+          <td>{{total}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock content  %}

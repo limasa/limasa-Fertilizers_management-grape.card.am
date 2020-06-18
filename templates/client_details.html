@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+{% for client in client %}
+<div class="card border-success mb-3">
+  <h5 class="card-header bg-dark"> {{client.client_name}} գործընկերոջ մանրամասներ</h5>
+  <div class="card-body">
+    <p class="card-text">Մարզ։ {{client.region}}</p>
+    <p class="card-text">Համայնք։ {{client.community}}</p>
+    <p class="card-text">Հեռախոս։ {{client.phone}}</p>
+    <p class="card-text">Էլ․ փոստ։ {{client.email}}</p>
+    <p class="card-text">Կազմակերպություն։ {{client.company}}</p>
+    <p class="card-text">Պաշտոն։ {{client.position}}</p>
+    <p class="card-text">Պոտենցիալ։ {{client.potential}}</p>
+    <p class="card-text">Անձնագրի համար։ {{client.passport_num}}</p>
+    <p class="card-text">ՀՎՀՀ։ {{client.tax_code}}</p>
+    <p class="card-text">Մեկնաբանություն։ {{client.comment}}</p>
+    <p class="card-text">Ստեղծման ամսաթիվ։ {{client.create_date}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+{% endfor %}
+{% endblock content %}
